@@ -32,7 +32,7 @@ def hist_equil(img):
     
     new_hist = hist(new_img) 
     
-    return new_hist, new_img, norm_hist
+    return new_hist, new_img, norm_hist, normsum_hist
     
 
 def main():
@@ -41,10 +41,10 @@ def main():
     path = "moon.bmp"
     img = cv.imread(path, 0)
     cv.imshow(path , img)
-    hist_equilized, img_equil , hist = hist_equil(img)
+    hist_equilized, img_equil , hist, norm_hist = hist_equil(img)
     cv.imshow("equil", img_equil)
     cv.imwrite("new_moon.bmp",img_equil)
-    plt.plot(hist_equilized)
+    plt.plot(norm_hist)
     plt.show()
     key = cv.waitKey(0)
     
